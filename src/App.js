@@ -50,22 +50,23 @@ class App extends Component {
   }
 
   render() {
-    const style = {
+    /*const style = {
       backgroundColor: 'green',
       color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
       cursor: 'pointer'
-      /* ':hover': {
+       ':hover': {
         backgroundColor: 'lightgreen',
         color: 'black'
-      } */
-    };
+      } 
+    };*/
 
     let persons = null;
 
     let assignedClasses = [];
+    let btnClass = ''
 
     if(this.state.persons.length <= 2){
       assignedClasses.push('red');
@@ -88,17 +89,18 @@ class App extends Component {
           })}
         </div>
       );
-      style.backgroundColor = 'red';
+      //style.backgroundColor = 'red';
       /* style[':hover'] = {
         backgroundColor: 'salmon',
         color: 'black'
       } */
+      btnClass = classes.Red;
     }
 
     return (
       <div className={classes.App}>
         <h1 className={assignedClasses.join(' ')}> My React App!</h1>
-        <button style={style} onClick={this.togglePersonsHandler}>Show/Hide Persons</button>
+        <button className={btnClass} onClick={this.togglePersonsHandler}>Show/Hide Persons</button>
         {persons}
       </div>
     );

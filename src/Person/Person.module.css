@@ -8,3 +8,9 @@
     margin-top:16px;
     margin-bottom:16px;
 }
+
+@media (min-width: 500px) {
+    .Person {
+        width: 450px;
+    }
+}
