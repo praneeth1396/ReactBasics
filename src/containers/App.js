@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classes from './App.module.css';
 //import Radium, { StyleRoot } from 'radium'
 import Person from '../components/Persons/Person/Person'
+import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
   state = {
@@ -65,42 +66,25 @@ class App extends Component {
 
     let persons = null;
 
-    let assignedClasses = [];
-    let btnClass = ''
-
-    if(this.state.persons.length <= 2){
-      assignedClasses.push('red');
-    }
-    if(this.state.persons.length <= 1){
-      assignedClasses.push('bold');
-    }
-
     if(this.state.showPersons){
       persons = (
-        <div>
-          {this.state.persons.map((person,index) => {
-            return <Person 
-                    click={() => this.deletePersonHandler(index)}
-                    change={(event) => this.nameChangedHandler(event,person.id)}
-                    name={person.name} 
-                    age={person.age} 
-                    key={person.id}
-                    />
-          })}
-        </div>
+        <Persons persons={this.state.persons}
+                 clicked={this.state.deletePersonHandler}
+                 changed={this.state.nameChangedHandler}
+        />
       );
       //style.backgroundColor = 'red';
       /* style[':hover'] = {
         backgroundColor: 'salmon',
         color: 'black'
       } */
-      btnClass = classes.Red;
     }
 
     return (
       <div className={classes.App}>
-        <h1 className={assignedClasses.join(' ')}> My React App!</h1>
-        <button className={btnClass} onClick={this.togglePersonsHandler}>Show/Hide Persons</button>
+        <Cockpit persons={this.state.persons} 
+                 showPersons={this.state.showPersons} 
+                 clicked={this.togglePersonsHandler} />
         {persons}
       </div>
     );
