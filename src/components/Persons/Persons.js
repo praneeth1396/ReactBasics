@@ -11,3 +11,5 @@ const persons = (props) =>
                 key={person.id}
                 />
     });
+
+export default persons;

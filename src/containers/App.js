@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.module.css';
 //import Radium, { StyleRoot } from 'radium'
-import Person from '../components/Persons/Person/Person'
+import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
@@ -69,8 +69,8 @@ class App extends Component {
     if(this.state.showPersons){
       persons = (
         <Persons persons={this.state.persons}
-                 clicked={this.state.deletePersonHandler}
-                 changed={this.state.nameChangedHandler}
+                 clicked={this.deletePersonHandler}
+                 changed={this.nameChangedHandler}
         />
       );
       //style.backgroundColor = 'red';

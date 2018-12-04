@@ -6,20 +6,22 @@ const cockpit = (props) => {
     let btnClass = ''
 
     if(props.showPersons){
-        btnClass = 'red';
+        btnClass = classes.Red;
     }
 
     if(props.persons.length <= 2){
-      assignedClasses.push('red');
+      assignedClasses.push(classes.red);
     }
     if(props.persons.length <= 1){
-      assignedClasses.push('bold');
+      assignedClasses.push(classes.bold);
     }
 
     return(
-        <div>
+        <div className={classes.Cockpit}>
             <h1 className={assignedClasses.join(' ')}> My React App!</h1>
             <button className={btnClass} onClick={props.clicked}>Show/Hide Persons</button>
         </div>
     );
 };
+
+export default cockpit
